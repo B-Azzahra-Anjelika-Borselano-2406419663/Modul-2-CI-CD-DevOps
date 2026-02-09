@@ -27,6 +27,11 @@
                     Edit
                 </a>
             </td>
+            <td>
+                <a th:href="@{/product/delete/{productId}(productId=${product.productId})}" class="btn btn-danger btn-sm">
+                    Delete
+                </a>
+            </td>
         </tr>
         </tbody>
     </table>
