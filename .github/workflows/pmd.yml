@@ -19,11 +19,5 @@ jobs:
           distribution: temurin
           java-version: 21
 
-      - name: Run PMD
-        uses: pmd/pmd-github-action@v1
-        with:
-          version: '7.0.0-rc4'
-          rulesets: >
-            category/java/bestpractices.xml,
-            category/java/code-style.xml,
-            category/java/errorprone.xml
+      - name: Run PMD via Gradle
+        run: ./gradlew pmdMain
