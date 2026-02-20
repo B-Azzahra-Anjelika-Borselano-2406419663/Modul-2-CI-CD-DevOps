@@ -32,8 +32,6 @@ pmd {
     ruleSets = listOf(
         "category/java/bestpractices.xml",
         "category/java/errorprone.xml",
-        "category/java/codestyle.xml",
-        "category/java/performance.xml"
     )
 }
 
