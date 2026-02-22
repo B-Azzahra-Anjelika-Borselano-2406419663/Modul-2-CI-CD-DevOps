@@ -1,6 +1,7 @@
 plugins {
     java
     jacoco
+    pmd
     id("org.springframework.boot") version "3.5.10"
     id("io.spring.dependency-management") version "1.1.7"
 }
@@ -23,6 +24,22 @@ configurations {
 
 repositories {
     mavenCentral()
+}
+
+pmd {
+    toolVersion = "7.0.0-rc4"
+    isConsoleOutput = true
+    ruleSets = listOf(
+        "category/java/bestpractices.xml",
+        "category/java/errorprone.xml",
+    )
+}
+
+tasks.withType<Pmd>().configureEach {
+    reports {
+        xml.required.set(true)
+        html.required.set(true)
+    }
 }
 
 val seleniumJavaVersion = "4.14.1"
