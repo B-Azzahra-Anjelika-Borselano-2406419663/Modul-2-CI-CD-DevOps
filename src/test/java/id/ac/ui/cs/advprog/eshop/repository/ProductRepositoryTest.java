@@ -16,7 +16,7 @@ class ProductRepositoryTest {
 
     @BeforeEach
     void setUp() {
-        productRepository = new ProductRepository();
+        productRepository = new ProductRepositoryImpl();
     }
 
     private Product createProduct(String id, String name, int quantity) {
