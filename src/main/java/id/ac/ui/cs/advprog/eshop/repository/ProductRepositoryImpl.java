@@ -12,6 +12,7 @@ import java.util.UUID;
 public class ProductRepositoryImpl implements ProductRepository {
     private List<Product> productData = new ArrayList<>();
 
+    @Override
     public Product create(Product product) {
         if (product.getProductId() == null) {
             product.setProductId(UUID.randomUUID().toString());
@@ -20,9 +21,12 @@ public class ProductRepositoryImpl implements ProductRepository {
         return product;
     }
 
+    @Override
     public Iterator<Product> findAll() {
         return productData.iterator();
     }
+
+    @Override
     public Product edit(String productId, Product editedProduct) {
         Product productToEdit = findById(productId);
 
@@ -33,6 +37,8 @@ public class ProductRepositoryImpl implements ProductRepository {
 
         return productToEdit;
     }
+
+    @Override
     public Product findById(String productId) {
         for (Product product : productData) {
             if (product.getProductId().equals(productId)) {
@@ -42,6 +48,7 @@ public class ProductRepositoryImpl implements ProductRepository {
         return null;
     }
 
+    @Override
     public void delete(String productId) {
         Product productToDelete = findById(productId);
         productData.remove(productToDelete);
